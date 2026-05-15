@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, Plus, Truck as TruckIcon, Wrench, ShieldAlert, FileWarning, RefreshCcw, Eye, Edit, MoreVertical, ChevronLeft, ChevronRight, ChevronDown, Phone, ShieldCheck, FileText, Settings, Loader2 } from "lucide-react";
+import { Search, Plus, Truck as TruckIcon, Wrench, ShieldAlert, FileWarning, RefreshCcw, Eye, Edit, MoreVertical, ChevronLeft, ChevronRight, ChevronDown, Phone, ShieldCheck, FileText, Settings, Loader2, BarChart2 } from "lucide-react";
 
 export default function TrucksPage() {
   const [trucksList, setTrucksList] = useState<any[]>([]);
@@ -76,6 +76,65 @@ export default function TrucksPage() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Monthly Performance Summary */}
+      <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex items-center space-x-2">
+            <BarChart2 size={20} className="text-blue-600" />
+            <h3 className="text-base font-bold text-gray-800">สรุปสถิติเที่ยววิ่งรายเดือน (ประจำเดือน พฤษภาคม)</h3>
+          </div>
+          <button className="text-xs text-blue-600 font-medium hover:underline flex items-center">
+            ดูรายงานละเอียด <ChevronRight size={14} className="ml-1" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Top Performer Card */}
+          <div className="bg-blue-50/50 rounded-2xl p-5 border border-blue-100 relative overflow-hidden group">
+            <div className="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform">
+              <TruckIcon size={100} />
+            </div>
+            <p className="text-xs text-blue-600 font-bold uppercase tracking-wider mb-2">อันดับ 1 (วิ่งสูงสุด)</p>
+            <h4 className="text-2xl font-black text-blue-900">70-1234</h4>
+            <div className="mt-4 flex items-center justify-between">
+              <div>
+                <p className="text-[10px] text-blue-600 font-medium uppercase">เที่ยววิ่ง</p>
+                <p className="text-lg font-bold text-blue-900">42 <span className="text-xs font-normal">เที่ยว</span></p>
+              </div>
+              <div className="text-right">
+                <p className="text-[10px] text-blue-600 font-medium uppercase">รายได้ประมาณการ</p>
+                <p className="text-lg font-bold text-blue-900">126,000 <span className="text-xs font-normal">บ.</span></p>
+              </div>
+            </div>
+          </div>
+
+          {/* Average Performance */}
+          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="p-4 border border-gray-100 rounded-xl bg-gray-50/50">
+              <p className="text-[10px] text-gray-500 font-bold uppercase mb-1">เฉลี่ยต่อคัน</p>
+              <p className="text-xl font-bold text-gray-800">28.5 <span className="text-xs font-normal text-gray-500">เที่ยว/เดือน</span></p>
+              <div className="w-full bg-gray-200 h-1.5 rounded-full mt-3 overflow-hidden">
+                <div className="bg-blue-500 h-full w-[65%] rounded-full"></div>
+              </div>
+            </div>
+            <div className="p-4 border border-gray-100 rounded-xl bg-gray-50/50">
+              <p className="text-[10px] text-gray-500 font-bold uppercase mb-1">ระยะทางรวมเฉลี่ย</p>
+              <p className="text-xl font-bold text-gray-800">4,250 <span className="text-xs font-normal text-gray-500">กม.</span></p>
+              <div className="w-full bg-gray-200 h-1.5 rounded-full mt-3 overflow-hidden">
+                <div className="bg-green-500 h-full w-[78%] rounded-full"></div>
+              </div>
+            </div>
+            <div className="p-4 border border-gray-100 rounded-xl bg-gray-50/50">
+              <p className="text-[10px] text-gray-500 font-bold uppercase mb-1">ประสิทธิภาพการใช้งาน</p>
+              <p className="text-xl font-bold text-gray-800">92% <span className="text-xs font-normal text-gray-500">Utilization</span></p>
+              <div className="w-full bg-gray-200 h-1.5 rounded-full mt-3 overflow-hidden">
+                <div className="bg-purple-500 h-full w-[92%] rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Filters */}
