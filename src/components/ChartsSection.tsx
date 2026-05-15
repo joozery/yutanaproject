@@ -63,7 +63,7 @@ export default function ChartsSection() {
               <YAxis axisLine={false} tickLine={false} tick={{ fill: '#6B7280', fontSize: 12 }} tickFormatter={formatYAxis} />
               <Tooltip 
                 contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-                formatter={(value: number) => new Intl.NumberFormat('th-TH').format(value)}
+                formatter={(value: any) => new Intl.NumberFormat('th-TH').format(value)}
               />
               <Line type="monotone" dataKey="income" stroke="#3B82F6" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6 }} />
               <Line type="monotone" dataKey="expense" stroke="#F87171" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6 }} />
@@ -94,7 +94,7 @@ export default function ChartsSection() {
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(value: number) => new Intl.NumberFormat('th-TH').format(value)} />
+                <Tooltip formatter={(value: any) => new Intl.NumberFormat('th-TH').format(value)} />
               </PieChart>
             </ResponsiveContainer>
           </div>
